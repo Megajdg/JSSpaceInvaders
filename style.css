@@ -24,19 +24,22 @@ body {
 /* Estilo para los jugadores */
 #P1, #P2 {
     position: absolute;
-    width: 50px;
-    height: 50px;
-    background-color: blue; /* Jugador 1: azul */
+    border-bottom: 6px solid blue;
+    width: 74px;
+    height: 50px;   
+    background-image: url(Images/Player73x52.png);
 }
 
 #P2 {
-    background-color: green; /* Jugador 2: verde */
+    border-bottom: 6px solid green; /* Jugador 2: verde */
 }
 
 /* Estilo para la bala */
 .bullet {
     position: absolute;
-    width: 10px;
-    height: 20px;
-    background-color: red; /* Color de la bala */
+    width: 27px;
+    height: 51px;
+    transform: scaleY(0.4);
+    transform: scaleX(0.4);
+    background-image: url(Images/Laser27x51.png);
 }

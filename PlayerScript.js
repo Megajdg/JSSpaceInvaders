@@ -5,16 +5,22 @@ class Player {
         this.id = id;
         this.health = 50;
         this.lifes = 5;
+        this.canShoot = true;
     }
 
     shoot() {
+
+        if (!this.canShoot) return; // Si no puede disparar, no hacer nada
+
+        this.canShoot = false; // Deshabilitar disparo hasta que se suelte la tecla
+
         // Crear el div de la bala
         let bullet = $('<div class="bullet"></div>');
         bullet.css({
             position: 'absolute',
             // Centrar la bala en el jugador
-            left: $(`#${this.name}`).position().left + $(`#${this.name}`).width() / 2 - 5, 
-            top: $(`#${this.name}`).position().top - 10, // Justo encima de P1
+            left: $(`#${this.name}`).position().left + $(`#${this.name}`).width() / 2 - 15, 
+            top: $(`#${this.name}`).position().top - 20, // Justo encima de P1
         });
         
         // Añadir la bala al body
@@ -39,15 +45,18 @@ class Player {
     moveRight(speed) {
         let sprite = $(`#${this.name}`);
         let currentLeft = sprite.position().left;
-        sprite.css("left", currentLeft + speed + 'px');
-        console.log(`${this.name}`, currentLeft);
-    }
+        if (currentLeft < 1000)
+            sprite.css("left", currentLeft + speed + 'px');
+            console.log(`${this.name}`, currentLeft);
+        }
 
     moveLeft(speed) {
         let sprite = $(`#${this.name}`);
         let currentLeft = sprite.position().left;
-        sprite.css("left", currentLeft - speed + 'px');
-        console.log(`${this.name}`, currentLeft);
+        if (currentLeft > 20) {
+            sprite.css("left", currentLeft - speed + 'px');
+            console.log(`${this.name}`, currentLeft);
+        }   
     }
 }
 
@@ -94,6 +103,14 @@ $(function () {
     // Detectar cuando las teclas dejan de ser presionadas
     document.addEventListener('keyup', function(event) {
         keysPressed[event.keyCode] = false; // Marcar la tecla como no presionada
+
+        // Volver a habilitar el disparo cuando se suelta la tecla de disparo
+        if (event.keyCode == 32) { // Espacio (Jugador 1)
+            player1.canShoot = true;
+        }
+        else if (event.keyCode == 45) { // Tecla '0' (Jugador 2)
+            player2.canShoot = true;
+        }
     });
 
     // Animar el movimiento continuo mientras se mantenga presionada la tecla
