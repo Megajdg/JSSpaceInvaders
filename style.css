@@ -14,3 +14,29 @@ canvas{
     width: 200px;
     text-align: left;
 }
+
+/* Estilo para la pantalla */
+body {
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+/* Estilo para los jugadores */
+#P1, #P2 {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: blue; /* Jugador 1: azul */
+}
+
+#P2 {
+    background-color: green; /* Jugador 2: verde */
+}
+
+/* Estilo para la bala */
+.bullet {
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    background-color: red; /* Color de la bala */
+}
