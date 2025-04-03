@@ -1,7 +1,7 @@
 canvas{
     width: 1440px;
     height: 930px;
-    background-image: url(Images/EspacioInvaders.png);
+    background-image: url(Images/Espacio.png);
 }
 .hud {
     position: absolute;
@@ -11,6 +11,6 @@ canvas{
     padding: 15px;
     border-radius: 10px;
     height: 900px;
-    width: 200px;
+    width: 400px;
     text-align: left;
 }
