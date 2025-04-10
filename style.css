@@ -19,6 +19,9 @@ canvas{
 body {
     margin: 0;
     background-color: #f0f0f0;
+    background-image: url(Images/Background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* Estilo para los jugadores */
@@ -34,12 +37,33 @@ body {
     border-bottom: 6px solid green; /* Jugador 2: verde */
 }
 
+.row {
+    width:1600px;
+    height: 120px;
+    scale: 0.60;
+}
+
+.col {
+    width: 150px;
+    height: 120px;
+}
+
+#Invader {
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.container {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+
 /* Estilo para la bala */
 .bullet {
     position: absolute;
     width: 27px;
     height: 51px;
-    transform: scaleY(0.4);
     transform: scaleX(0.4);
     background-image: url(Images/Laser27x51.png);
 }

@@ -12,7 +12,7 @@ class Player {
     }
 
     // Método para detectar colisión entre la bala y el enemigo
-   /* checkCollision(bullet, enemy) {
+    checkCollision(bullet, enemy) {
         let bulletPos = bullet.position();
         let enemyElement = $(`#${enemy.name}`);
     
@@ -26,7 +26,7 @@ class Player {
             bulletPos.top >= enemyPos.top &&
             bulletPos.top <= enemyPos.top + enemyHeight
         );
-    }*/
+    }
 
     shoot() {
 
