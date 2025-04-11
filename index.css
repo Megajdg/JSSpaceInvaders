@@ -1,0 +1,28 @@
+body{
+    margin:0;
+    background-color: black;
+}
+
+#score{
+    position: fixed;
+    z-index: 10;
+    color: white;
+    left: 10px;
+    top: 10px;
+    font-family: sans-serif;
+    font-size: 14px;
+    color: teal;
+}
+
+#score2{
+    position: fixed;
+    z-index: 10;
+    color: white;
+    left: 1800px;
+    top: 10px;
+    font-family: sans-serif;
+    font-size: 14px;
+    color: lime;
+    text-align: right;
+
+}
