@@ -9,28 +9,38 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <canvas id="gameCanvas">
-        
+    <p id="score">
+        <span>Player 1</span>
+        <br>
+        <span>Puntuación: </span>
+        <span id="scorep1">0</span>
+        <br>
+        <span>Vidas: </span>
+        <span id="healthp1">5</span>
+    </p>
+    <p id="score2">
+        <span>Player 2</span>
+        <br>
+        <span>Puntuación: </span>
+        <span id="scorep2">0</span>
+        <br>
+        <span>Vidas: </span>
+        <span id="healthp2">5</span>
+    </p>
+    <canvas id="canvas">
+        <!-- Jugadores -->
+    
     </canvas>
-    <div class="hud">
-        <h2>HUD - Jugadores</h2>
-        <p>👨‍🚀 <strong>Jugador 1:</strong> Alex</p>
-        <p>❤️ <strong>Jugador 1:</strong> 2</p>
-        <p>💀 <strong>Enemigos derrotados:</strong> 5</p>
-        <hr>
-        <p>👩‍🚀 <strong>Jugador 2:</strong> Sarah</p>
-        <p>❤️ <strong>Jugador 2:</strong> 1</p>
-        <p>💀 <strong>Enemigos derrotados:</strong> 3</p>
-    </div>
-
-    <!-- Jugadores -->
-    <div id="P1" style="top: 90%; left: 800px;"></div> <!-- Jugador 1 -->
-    <div id="P2" style="top: 90%; left: 1000px;"></div> <!-- Jugador 2 -->
-
+    <!-- Enemigos -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="script.js"></script>
+    
+    <script src="Playerscript.js"></script>
+    <script src="BulletScript.js"></script>
+    <script src="InvaderScript.js"></script>
+    <script src="GameController.js"></script>
+
 </body>
 </html>
