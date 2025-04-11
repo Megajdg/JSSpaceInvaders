@@ -41,7 +41,6 @@ let health2 = 5;
 
 addEventListener('keydown',({key})=>{
     switch(key){
-        case 'Space':
         case 'a':
             keys.a.pressed = true
             break;
@@ -55,20 +54,24 @@ addEventListener('keydown',({key})=>{
             keys.ArrowRight.pressed = true
             break;
         case ' ':
-            projectiles.push(new Bullet({
-                position:{ x:player.position.x + player.width/2, y:player.position.y},
-                velocity:{x:0,y:-15},
-                owner: 'player1'
-            }))
-            keys.Space.pressed = true
+            if(!keys.Space.pressed) {
+                projectiles.push(new Bullet({
+                    position:{ x:player.position.x + player.width/2, y:player.position.y},
+                    velocity:{x:0,y:-15},
+                    owner: 'player1'
+                }))
+                keys.Space.pressed = true
+            }
             break;
         case 'Insert':
-            projectiles.push(new Bullet({
-                position:{ x:player2.position.x + player2.width/2, y:player2.position.y},
-                velocity:{x:0,y:-15},
-                owner: 'player2'
-            }))
-            keys.Insert.pressed = true
+            if(!keys.Insert.pressed) {
+                projectiles.push(new Bullet({
+                    position:{ x:player2.position.x + player2.width/2, y:player2.position.y},
+                    velocity:{x:0,y:-15},
+                    owner: 'player2'
+                }))
+                keys.Insert.pressed = true
+            }
             break;
     }
 })
@@ -97,7 +100,7 @@ addEventListener('keyup',({key})=>{
         case 'ArrowRight':
             keys.ArrowRight.pressed = false
             break;
-        case 'space':
+        case ' ':
             keys.Space.pressed = false
             break;
         case 'Insert':
@@ -168,10 +171,9 @@ function animate(){
             },0)
             health1 -= 1
             healthp1.innerText = health1
-            if ( health1===0){
-                createParticles({
-                    object: player,
-                })    
+            if (health1===0){
+                if(alert('El Player 1 ha ganado porque el player 2 ha sido eliminado.')){}
+                else window.location.reload();
             }
             
         }
@@ -180,13 +182,11 @@ function animate(){
             setTimeout(() => {
                 invaderProjectiles.splice(index,1)
             },0)
-            invaderProjectile.splice()
             health2 -= 1
             healthp2.innerText = health2
-            if ( health2===0){
-                createParticles({
-                    object: player2,
-                })    
+            if (health2===0){
+                if(alert('El Player 2 ha ganado porque el player 1 ha sido eliminado.')){}
+                else window.location.reload();
             }
         }
     })
@@ -224,9 +224,17 @@ function animate(){
                             if (projectile.owner === 'player1') {
                                 score1 += 10
                                 scorep1.innerText = score1
+                                if (score1 >= 1000) {
+                                    if(alert('El Player 1 ha ganado porque ha eliminado a 100 enemigos.')){}
+                                    else window.location.reload();
+                                }
                             } else if (projectile.owner === 'player2') {
                                 score2 += 10
                                 scorep2.innerText = score2
+                                if (score2 >= 1000) {
+                                    if(alert('El Player 2 ha ganado porque ha eliminado a 100 enemigos.')){}
+                                    else window.location.reload();
+                                }
                             }
                             grid.invaders.splice(i, 1)
                             projectiles.splice(j, 1)
